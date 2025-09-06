@@ -13,4 +13,4 @@ else:
 
 if len_argv >= 1:
     for i in range(1, len_argv +1):
-        print("{}:{}".format(i,argv[i]))
+        print("{}: {}".format(i,argv[i]))
