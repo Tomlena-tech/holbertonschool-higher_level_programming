@@ -10,3 +10,7 @@ elif len_argv == 1:
     print("1 argument:")
 else:
     print("{} arguments:".format(len_argv))     
+
+if len_argv >= 1:
+    for i in range(1, len_argv +1):
+        print("{}:{}".format(i,argv[i]))
