@@ -1,0 +1,80 @@
+Test file for 5-text_indentation module
+======================================
+
+Import the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test basic functionality:
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres") # doctest: +NORMALIZE_WHITESPACE
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    <BLANKLINE>
+    Si id dicis, vicimus.
+    <BLANKLINE>
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    <BLANKLINE>
+    Sin aliud quid voles, postea.
+    <BLANKLINE>
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem!
+    <BLANKLINE>
+    Iam ruinas videres
+
+Test simple case:
+    >>> text_indentation("Hello. World? Test: Done")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Test:
+    <BLANKLINE>
+    Done
+
+Test with spaces around punctuation:
+    >>> text_indentation("Hello   .   World   ?   Test   :   Done")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Test:
+    <BLANKLINE>
+    Done
+
+Test error cases - not a string:
+    >>> text_indentation(98)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test error cases - None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test empty string:
+    >>> text_indentation("")
+
+Test string with only spaces:
+    >>> text_indentation("   ")
+
+Test single punctuation:
+    >>> text_indentation(".")
+    .
+    <BLANKLINE>
