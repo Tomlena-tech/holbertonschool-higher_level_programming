@@ -8,26 +8,45 @@ class Square:
         
     @property
     def size(self):
+        """Getter for size
+
+        Returns:
+            _type_: self.__size
+        """
         return self.__size
+    
     @size.setter
     def size(self, value):
+        """Setter for size
+        Args:
+            value (_type_): value to set size to
+        returns:
+            _type_: None
+        """
         if not isinstance (value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
+        
     @property
     def position(self):
+        """Position getter"""
         return(self.__position)
     
     @position.setter
     def position(self, value):
+        """position Setter"""
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+        
     def area(self):
+        """ Area method that returns the current square area"""
         return(self.__size ** 2)
+    
     def my_print(self):
+        """Prints in stdout the square with the character #"""
         if self.__size == 0:
             print()
             return
