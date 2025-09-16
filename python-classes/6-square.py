@@ -2,7 +2,7 @@
 """module 6-square.py that defines a square by: (based on 5-square.py)"""
 class Square:
     def __init__(self, size=0, position=(0, 0)):
-        """"initialise the data"""
+        """initialise the data"""
         self.size = size
         self.position = position
         
@@ -37,7 +37,9 @@ class Square:
     @position.setter
     def position(self, value):
         """position Setter"""
-        if not isinstance(value, tuple) or len(value) != 2:
+        if (not isinstance(value, tuple) or len(value) != 2 or
+            not all(isinstance(i, int) for i in value) or
+            not all(i >= 0 for i in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
         
