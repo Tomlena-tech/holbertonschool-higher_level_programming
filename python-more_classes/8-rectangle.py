@@ -52,14 +52,7 @@ class Rectangle:
             return ""
         symbol = str(self.print_symbol)
         return "\n".join([symbol * self.__width for _ in range(self.__height)])
-        """print symbol into the string"""
-        
-        rect = ""
-        for i in range(self.__height):
-            rect += "#" * self.__width
-            if i != self.__height - 1:
-                rect += "\n"
-        return rect
+        """print symbol into the string""" 
     def __repr__(self):
         """Returns a string representation that can recreate the instance"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
@@ -68,8 +61,14 @@ class Rectangle:
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
     @staticmethod
-    def bigger_or_equal(rect_1, rect_2)
+    def bigger_or_equal(rect_1, rect_2):
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instanceof Rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        
+           
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
