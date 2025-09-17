@@ -45,3 +45,14 @@ class Rectangle:
         """Returns the rectangle as a string of # characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
+        rect = ""
+        for i in range(self.__height):
+            rect += "#" * self.__width
+            if i != self.__height - 1:
+                rect += "\n"
+        return rect
+    def __repr__(self):
+        """Returns a string representztion that can create the instance"""
+        return (f"Rectangle({self.__width},{self.__height})")
+ 
+    
