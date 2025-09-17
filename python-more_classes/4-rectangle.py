@@ -34,10 +34,10 @@ class Rectangle:
         self.__height = value
      
     def area(self): 
-        """Defines the area of the redctangle"""
+        """Defines the area of the rectangle"""
         return self.__width * self.__height
     def perimeter(self):
-        """ Defines parameter of the rectangle"""
+        """ Defines perimeter of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2*(self.__width + self.__height)
@@ -52,7 +52,7 @@ class Rectangle:
                 rect += "\n"
         return rect
     def __repr__(self):
-        """Returns a string representztion that can create the instance"""
-        return (f"Rectangle({self.__width},{self.__height})")
+        """Returns a string representation that can create the instance"""
+        return (f"Rectangle({self.__width}, {self.__height})")
  
     
