@@ -5,6 +5,10 @@ class Rectangle:
     """Defines a rectangle by width and height."""
     number_of_instances = 0
     """Defines number of instances counting"""
+    @classmethod
+    def square(cls, size=0):
+        """Create a square"""
+        return cls(size, size)
     print_symbol = "#"
     """Print symbol reprensentation"""
     def __init__(self, width=0, height=0):
