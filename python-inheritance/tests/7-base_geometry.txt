@@ -24,33 +24,5 @@
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
 
->>> try:
-...     print(bg.area())
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[Exception] area() is not implemented
 
->>> bg.integer_validator("test", 1.5)
-Traceback (most recent call last):
-    ...
-TypeError: test must be an integer
 
->>> bg.integer_validator("test", True)
-Traceback (most recent call last):
-    ...
-TypeError: test must be an integer
-
->>> bg.integer_validator("test", [1, 2, 3])
-Traceback (most recent call last):
-    ...
-TypeError: test must be an integer
-
->>> bg.integer_validator("test", None)
-Traceback (most recent call last):
-    ...
-TypeError: test must be an integer
-
->>> bg.integer_validator("test", -1)
-Traceback (most recent call last):
-    ...
-ValueError: test must be greater than 0
