@@ -6,7 +6,7 @@ class Animal(ABC):
     pass
     @abstractmethod
     def sound(self):
-            pass
+        pass
         
 class Dog(Animal):
     def sound(self):
@@ -16,5 +16,4 @@ class Cat(Animal):
     def sound(self):
         return "Meow"
     
-if __name__ == "__main__":
-    print("=== Test des animaux ===")
+    
