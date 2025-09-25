@@ -36,5 +36,15 @@ class Rectangle(Shape):
 def shape_info(shape):
     print(f"Aire: {shape.area()}")
     print(f"Périmètre: {shape.perimeter()}")
+    
+    # Testing
+circle = Circle(5)
+rectangle = Rectangle(4, 6)
+
+print("=== CERCLE ===")
+shape_info(circle)
+
+print("\n=== RECTANGLE ===")
+shape_info(rectangle)
      
      
