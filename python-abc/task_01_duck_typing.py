@@ -19,7 +19,9 @@ class Circles(Shape):
 
     def perimeter(self):
         return 2 * math.pi * self.radius
-    
+
+
+
 class Rectangle(Shape): 
     def __init__(self, height, width):
         self.width = width
@@ -29,7 +31,9 @@ class Rectangle(Shape):
         return self.width * self.height
     def perimeter(self):
         return 2 * (self.width + self.height)    
-    
-    def shape_info(self):
-        """Return information about the shape"""
-        return f"This is a {self.__class__.__name__}"
+     
+    def shape_info(shape):
+            print(f"Aire: {shape.area()}")
+            print(f"Périmètre: {shape.perimeter()}")
+     
+     
