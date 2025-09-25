@@ -11,7 +11,7 @@ class Shape(ABC):
     def perimeter(self):
         pass
     
-class Circles(Shape):
+class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
     def area(self):
