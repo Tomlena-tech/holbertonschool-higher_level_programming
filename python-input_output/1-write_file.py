@@ -3,5 +3,6 @@
 
 
 def write_file(filename="", text=""):
-    with write_file(filename, 'w', text= "my_first_file.txt", encoding= 'utf-8') as f:
-        print(f.read(), end='')
+    """Write and count the number of character"""
+    with open(filename, 'w', encoding= 'utf-8') as f:
+        return f.write(text)
