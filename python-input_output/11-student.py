@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module that defines a Student class"""
-import os
-import sys
+
 
 
 class Student:
