@@ -1,2 +1,7 @@
-#!/usr/bin/python3
-""" Write a function that returns the dictionary description with simple data structure (list, dictionary, string, integer and boolean) for JSON serialization of an object """
+class Student:
+    """Class that defines a student"""
+
+    def __init__(self, first_name, last_name, age):
+        """Initialize a Student instance"""
+        
+    
