@@ -9,4 +9,10 @@ class Student:
         self.first_name = first_name
         self.age = age
         
-    
+    def to_json(self):
+        """Retrieve a dictionary representation of a Student instance
+        
+        Returns:
+            A dictionary containing all instance attributes
+        """
+        return self.__dict__
