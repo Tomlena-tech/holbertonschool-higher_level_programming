@@ -13,7 +13,7 @@ class CustomObject:
         """Displaying attributs"""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}") 
-        print(f"Is_student: {self.Is_student}") 
+        print(f"Is_student: {self.is_student}") 
     
     def serialize(self, filename):
         """Serialize the current instance to a file using pickle"""
