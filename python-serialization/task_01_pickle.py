@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Create an instance of CustomObject"""
-
+import pickle
 
 class CustomObject:
     def __init__(self, name, age, is_student):
@@ -21,9 +21,9 @@ class CustomObject:
             with open(filename, 'wb') as file:
                 pickle.dump(self, file)
                 return None
-        except Exception:
+        except (IOError, PermissionError, pickle.PicklingError):
             return None
-
+        
     @classmethod
     def deserialize(cls, filename):
         """ Deserialize an object from a file using pickle"""
