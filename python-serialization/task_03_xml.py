@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ Create function who serailize and deserialyse an alternative format to json"""
+import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
