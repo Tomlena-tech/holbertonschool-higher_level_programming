@@ -650,6 +650,7 @@ Résultat :
 [réponse JSON avec id: 101]
 
 ## 5. Interprétation
-- Les en-têtes montrent que...
-- Le POST a créé...
-- Le code 200 signifie...
+  "title": "foo",
+  "body": "bar",
+  "userId": "1",
+  "id": 101
