@@ -52,3 +52,7 @@ def fetch_and_save_posts():
         print("Données sauvegardées dans posts.csv")
     else:
         print("Erreur lors de la récupération des données")
+        
+if __name__ == "__main__":
+    fetch_and_print_posts()
+    fetch_and_save_posts()
