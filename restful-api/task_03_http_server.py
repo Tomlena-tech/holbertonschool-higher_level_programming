@@ -8,8 +8,10 @@ import json
 class Simple_server(BaseHTTPRequestHandler):
     """Creta a subsclass of of BaseHTTPRequestHandler"""
     def do_GET(self):
-        self.send_response("Hello, this is a simple API")
-        self.wfile.write(json.dumps({"message": "Hello, this is a simple API"}).encode())
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"Hello, this is a simple API!")
         
 if __name__ == "__main__":
     PORT = 8000
