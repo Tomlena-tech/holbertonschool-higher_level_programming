@@ -78,19 +78,23 @@ Corps :
 
 ## 3. Méthodes HTTP Courantes
 
+## 3. Méthodes HTTP Courantes
+
 | Méthode | Description | Cas d'utilisation |
 |---------|-------------|-------------------|
-| GET     | ...         | ...               |
-| POST    | ...         | ...               |
-| PUT     | ...         | ...               |
-| DELETE  | ...         | ...               |
+| GET     | Récupère des données du serveur | Charger une page web, obtenir des infos |
+| POST    | Envoie des données pour créer une ressource | S'inscrire, publier un commentaire |
+| PUT     | Met à jour complètement une ressource | Modifier tout son profil utilisateur |
+| DELETE  | Supprime une ressource | Supprimer un compte, effacer un post |
+| PATCH   | Modification partielle d'une ressource | Changer uniquement son email |
+## 4. Codes de Statut HTTP Courants
 
 ## 4. Codes de Statut HTTP Courants
 
 | Code | Nom | Description | Scénario |
 |------|-----|-------------|----------|
-| 200  | OK  | ...         | ...      |
-| 404  | Not Found | ... | ...      |
-| 401  | Unauthorized | ... | ...   |
-| 500  | Internal Error | ... | ... |
-| 201  | Created | ...     | ...      |
+| 200  | OK  | Requête réussie | Page web chargée normalement |
+| 201  | Created | Ressource créée avec succès | Compte utilisateur créé |
+| 404  | Not Found | Ressource introuvable | URL incorrecte ou page supprimée |
+| 401  | Unauthorized | Authentification requise | Accéder à son profil sans être connecté |
+| 500  | Internal Server Error | Erreur interne du serveur | Bug dans le code du serveur |
