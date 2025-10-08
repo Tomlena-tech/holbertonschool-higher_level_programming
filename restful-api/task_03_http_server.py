@@ -8,6 +8,12 @@ import json
 class Simple_server(BaseHTTPRequestHandler):
     """Creta a subsclass of of BaseHTTPRequestHandler"""
     def do_GET(self):
+        if self.path == "/" or self.path == "":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API")
+            
         if self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
