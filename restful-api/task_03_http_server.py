@@ -16,9 +16,9 @@ class Simple_server(BaseHTTPRequestHandler):
          
         elif self.path == "/info":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write{"version":"1.0", "description":"a simple API built with http.server"}    
+            self.wfile.write(json.dumps({"version":"1.0", "description":"a simple API built with http.server"}).encode())    
             
         elif self.path == "/data":
             self.send_response(200)
