@@ -2,16 +2,19 @@
 """ Develop a simple API using Python with the Flask framework"""
 
 
-import json
 
-from flask import Flask
+from flask import Flask, jsonify
+
 app = Flask(__name__)
 
+@app.route('/')
 def home():
-     if self.path == "/" or self.path == "":
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain")
-        self.end_headers()
-        self.wfile.write(b"Welcome to the Flask API!")
-        
-if __name__ == "__main__": app.run()        
+    return 'Welcome to the Flask API!'
+
+@app.route('/data', methods=['GET'])
+def get_data():
+    data = users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+    return jsonify(data)
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
