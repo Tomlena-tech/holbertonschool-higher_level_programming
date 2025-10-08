@@ -13,6 +13,12 @@ class Simple_server(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API")
+         
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write{"version":"1.0", "description":"a simple API built with http.server"}    
             
         elif self.path == "/data":
             self.send_response(200)
