@@ -5,20 +5,20 @@ that responds to GET requests with a JSON message."""
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-class Simple_server(BaseHTTPRequestHandler):
+class SimpleServer(BaseHTTPRequestHandler):
     """Creta a subsclass of of BaseHTTPRequestHandler"""
     def do_GET(self):
         if self.path == "/" or self.path == "":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API")
+            self.wfile.write(b"Hello, this is a simple API!")
          
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(json.dumps({"version":"1.0", "description":"a simple API built with http.server"}).encode())    
+            self.wfile.write(json.dumps({"version":"1.0", "description":"A simple API built with http.server"}).encode())    
             
         elif self.path == "/data":
             self.send_response(200)
@@ -37,13 +37,13 @@ class Simple_server(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"undefined endpoint")
+            self.wfile.write(b"Endpoint not found")
    
 
         
 if __name__ == "__main__":
     PORT = 8000
-    server = HTTPServer(('', PORT), Simple_server)
+    server = HTTPServer(('', PORT), SimpleServer)
     print(f'Server running on port {PORT}')
     server.serve_forever()
     
