@@ -14,7 +14,7 @@ def data():
 
 @app.route("/status", methods=["GET"])
 def status():
-    return jsonify("OK")
+    return "OK"
 
 @app.route("/users/<username>", methods=["GET"])
 def get_user(username):
@@ -29,3 +29,4 @@ def add_user():
         return jsonify({"error": "Username is required"}), 400
     users[data["username"]] = data
     return jsonify({"message": "User added", "user": data}), 201
+
