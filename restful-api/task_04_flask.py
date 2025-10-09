@@ -25,7 +25,7 @@ users = {
         "age": 25,
         "city": "San Francisco"
     }
-}
+}    
 @app.route('/')
 def home():
     return 'Welcome to the Flask API!'
@@ -34,6 +34,10 @@ def home():
 def get_data():
     usernames = list(users.keys())
     return jsonify(usernames)
+
+@app.route('/users')
+def get_all_users():
+    return jsonify(users)
 
 @app.route('/status')
 def status():
