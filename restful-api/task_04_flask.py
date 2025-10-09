@@ -8,24 +8,23 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 users = {}
   
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return 'Welcome to the Flask API!'
 
-@app.route('/data')
-def get_data():
-    usernames = list(users.keys())
-    return jsonify(usernames)
+@app.route('/data', methods=['GET'])
+def data():
+    return jsonify(list(users.keys()))
 
-@app.route('/users')
+@app.route('/users', methods=['GET'])
 def get_all_users():
     return jsonify(users)
 
-@app.route('/status')
+@app.route('/status', methods=['GET'])
 def status():
     return jsonify({"status": "OK"})
 
-@app.route('/users/<username>')
+@app.route('/users/<username>',methods=['GET'])
 def get_user(username):
     if username in users:
         return jsonify(users[username])
@@ -34,19 +33,14 @@ def get_user(username):
     
 @app.route('/add_user', methods=['POST'])
 def add_user(): # New endpoint to add a user
-    user_data = request.get_json()
-    username = user_data.get('username')
-
-    if not username:
-        return jsonify({"error": "Username and info are required"}), 400
+    data = request.get_json()
+    if not data or 'username' not in data:
+        return jsonify({"error": "Username is required"}), 400
     
-    users[username] = user_data # Add the new user to the dictionary
-    return jsonify({
-        "message": "User added",
-        "user": user_data
-    }), 201
+    username = data['username']
+    users[username] = data
+    return jsonify({"message": "User added","user": data}), 201
     
-
 
 
 if __name__ == "__main__":
