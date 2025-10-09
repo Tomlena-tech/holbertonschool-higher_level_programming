@@ -37,8 +37,6 @@ def add_user(): # New endpoint to add a user
         return jsonify({"error": "Username and info are required"}), 400
     
     users[username] = user_data # Add the new user to the dictionary
-
-    
     return jsonify({
         "message": "User added",
         "user": user_data
