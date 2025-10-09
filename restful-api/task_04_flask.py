@@ -18,6 +18,12 @@ users = {
         "name": "John",
         "age": 30,
         "city": "New York"
+    },
+    "Alice":{
+        "username": "Alice",
+        "name": "Alice",
+        "age": 25,
+        "city": "San Francisco"
     }
 }
 @app.route('/')
