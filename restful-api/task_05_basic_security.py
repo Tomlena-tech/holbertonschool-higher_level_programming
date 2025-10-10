@@ -26,6 +26,7 @@ def verify_password(username, password):
 
 
 @app.route("/basic-protected", methods=["GET"])
+@auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
 
@@ -38,9 +39,10 @@ def login():
     password = data.get("password")
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
+    
     if username in users and check_password_hash(users[username]['password'], password):
         access_token = create_access_token(identity={"username": username, "role": users[username]["role"]})
-        return jsonify("access_token": access_token), 200
+        return jsonify({"access_token": access_token}), 200
     return jsonify({"error": "Invalid credentials"}), 401
 
 
