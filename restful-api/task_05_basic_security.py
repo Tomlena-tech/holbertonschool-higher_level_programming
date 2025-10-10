@@ -32,9 +32,16 @@ def basic_protected():
 
 
 @app.route("/login", methods=["POST"])
-@jwt_required()
-def log_user():
-    return "Welcome to the Flask API!"
+def login():
+    data = request.get_json(silent=True) or {}
+    username = data.get("username")
+    password = data.get("password")
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+    if username in users and check_password_hash(users[username]['password'], password):
+        access_token = create_access_token(identity={"username": username, "role": users[username]["role"]})
+        return jsonify("access_token": access_token), 200
+    return jsonify({"error": "Invalid credentials"}), 401
 
 
 
