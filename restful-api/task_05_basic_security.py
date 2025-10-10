@@ -38,7 +38,6 @@ def login():
     data = request.get_json(silent=True) or {}
     username = data.get("username")
     password = data.get("password")
-    USER_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2MDA5NzUyNCwianRpIjoiZTIwMThiMDAtZTlmMy00MzdmLTk4YTAtMmVmMWViMjQ1YzM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXIxIiwibmJmIjoxNzYwMDk3NTI0LCJjc3JmIjoiYWYxMjhmYzgtZDY0OC00NWFiLTkwMjktZGY3ZDEyOTRmODQ2IiwiZXhwIjoxNzYwMDk4NDI0LCJyb2xlIjoidXNlciJ9._BUfDJLmrH56oNEkRq08Op1qn0c8LlCCfbztkCfBIEM"
     
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 401
@@ -49,11 +48,10 @@ def login():
     if not check_password_hash(users[username]['password'], password):
         return jsonify({"error": "Invalid credentials"}), 401
     
-    # ✅✅✅ LA CORRECTION EST ICI ✅✅✅
     additional_claims = {"role": users[username]["role"]}
     access_token = create_access_token(
         identity=username,  # ← String uniquement !
-        additional_claims=additional_claims
+        additional_claims={"role": users[username]["role"]}  # ← Dictionnaire avec les rôles
     )
     
     return jsonify({"access_token": access_token}), 200
@@ -65,10 +63,15 @@ def jwt_protected():
     return "JWT Auth: Access Granted"
 
 
-@app.route("/jwt-protected", methods=["GET"])
+@app.route("/admin-only", methods=["GET"])
 @jwt_required()  
-def jwt_protected():
-    return "JWT Auth: Access Granted"
+def admin_only():
+    current_user = get_jwt_identity()
+    user_role = users[current_user]['role']
+    if user_role != 'admin':
+        return jsonify({"error": "Admin access required"}), 403
+    
+    return "Admin Access Granted"
 
 
 
