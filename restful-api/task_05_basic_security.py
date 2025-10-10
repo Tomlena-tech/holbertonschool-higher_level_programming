@@ -83,6 +83,6 @@ def admin_only():
 
 
 if __name__ == "__main__":
-    PORT = 8000
+    PORT = 5000
     print(f'Server running on port {PORT}')
     app.run(host='', port=PORT)
