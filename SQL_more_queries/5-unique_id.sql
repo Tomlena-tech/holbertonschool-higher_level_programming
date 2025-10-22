@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS uniq_id (
+    id INT DEFAULT 1 UNIQUE,
+    name VARCHAR(256)
+);
