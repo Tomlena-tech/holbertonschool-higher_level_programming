@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+
 """Listing all states from USA database """
 import MySQLdb
 import sys
