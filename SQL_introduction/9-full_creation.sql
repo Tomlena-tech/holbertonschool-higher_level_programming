@@ -1,3 +1,4 @@
+-- Crée la table second_table et insère plusieurs enregistrements
 CREATE TABLE IF NOT EXISTS second_table (
 id INT,
 name VARCHAR(256),
