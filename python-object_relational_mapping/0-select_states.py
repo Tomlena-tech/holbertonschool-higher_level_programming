@@ -6,7 +6,7 @@ import MySQLdb
 import sys
 
 
-def list_states(user: str, password: str, db_name: str) -> None:
+def list_states(user: str, password: str, db_name: str)
     """Se connecte et affiche les états."""
     conn = MySQLdb.connect(
         host="localhost",
