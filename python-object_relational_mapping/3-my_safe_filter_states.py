@@ -23,7 +23,6 @@ if __name__ == "__main__":
     
     cursor = db.cursor()
     
-    # CHANGEMENT ICI : Paramètres préparés au lieu de .format()
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (state_name,))
     
