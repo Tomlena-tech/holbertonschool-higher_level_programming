@@ -2,7 +2,7 @@
 
 """
 Module qui permet de récupérer une liste de ville des
-USA commencant par la lettre N.
+USA en utilisant un nom en argument.
 """
 
 import MySQLdb
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     )
     cursor = db.cursor()
     
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC".format(state_name)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
     cursor.execute(query)
     
     for row in cursor.fetchall():
