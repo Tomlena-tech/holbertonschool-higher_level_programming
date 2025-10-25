@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+"""
+Module qui permet de récupérer une liste de ville des
+USA ainsi que des les afficher à l'écran.
+"""
 import MySQLdb
 import sys
 
