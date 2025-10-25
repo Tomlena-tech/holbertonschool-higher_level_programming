@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 Module qui permet de suprimer la noms de ville qui sont
