@@ -1,5 +1,5 @@
-
 #!/usr/bin/python3
+
 """
 Module qui permet de récupérer les ville et leur informations
 qui sont enregistrer dans la database.
