@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 Module qui permet de modifier la valeur
