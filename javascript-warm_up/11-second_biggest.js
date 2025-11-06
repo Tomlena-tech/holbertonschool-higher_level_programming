@@ -1,12 +1,21 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 const args = process.argv.slice(2).map(Number);
 
 if (args.length < 2) {
   console.log(0);
 } else {
-  const max = Math.max(...args);
-  const filtered = args.filter(n => n !== max);
-  const secondMax = filtered.length ? Math.max(...filtered) : 0;
-  console.log(secondMax);
+  let max = -Infinity;
+  let second = -Infinity;
+
+  for (const n of args) {
+    if (n > max) {
+      second = max;
+      max = n;
+    } else if (n > second && n < max) {
+      second = n;
+    }
+  }
+
+  console.log(second);
 }
