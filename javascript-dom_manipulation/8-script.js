@@ -1,9 +1,7 @@
 #!/usr/bin/node
-const value_hello = document.getElementById('hello');
-value_hello.addEventListener('DOMContentLoaded',() => {
+document.addEventListener('DOMContentLoaded', () => {
+    const value_hello = document.getElementById('hello');
 fetch ('https://hellosalut.stefanbohacek.com/?lang=fr')
-.then(res => res.text())
-.then(hello => {bonjour})) 
-
-}
-}
+.then(response => response.json())
+.then(data => value_hello.textContent = data.hello)
+})
