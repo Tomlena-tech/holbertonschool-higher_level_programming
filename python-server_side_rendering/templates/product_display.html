@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Product Display</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            border: 1px solid hsl(0, 9%, 2%);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #d01111;
+        }
+        
+        tr:hover {
+            background-color: #ddd;
+        }
+        
+        .error {
+            color: red;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <main>
+        <h1>Product Display</h1>
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% elif products %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.price }}€</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No products to display.</p>
+        {% endif %}
+    </main>
+    
+    {% include 'footer.html' %}
+</body>
+</html>
+
+
+
