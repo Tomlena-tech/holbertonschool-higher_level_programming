@@ -12,16 +12,16 @@ def contact():
     return render_template('contact.html')
 
 @app.route('/header')
-def header()
-    return render_template('header') 
+def header():
+    return render_template('header.html') 
 
-@app.route('footer')
-def footer()
-    return render_template('footer')
+@app.route('/footer')
+def footer():
+    return render_template('footer.html')
 
-@app.route('about')
-def about()
-    return render_template('about')
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 if __name__ == '__main__':
