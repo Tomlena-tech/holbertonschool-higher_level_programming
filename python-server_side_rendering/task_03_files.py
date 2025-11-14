@@ -37,7 +37,7 @@ def products():
         return render_template('product_display.html', error=error)
     
     if source not in ['json', 'csv']:
-        error = "Error: Invalid source. Please use 'json' or 'csv'."
+        error = "Wrong source"
         return render_template('product_display.html', error=error)
     
     # 3. Lire les données selon la source
@@ -85,7 +85,7 @@ def products():
             if filtered_product:
                 products_list = [filtered_product]
             else:
-                error = f"Error: Product with id={product_id} not found."
+                error = f"Product not found"
                 return render_template('product_display.html', error=error)
         
         except ValueError:
